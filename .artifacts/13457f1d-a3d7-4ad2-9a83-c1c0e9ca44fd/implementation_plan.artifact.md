@@ -1,38 +1,24 @@
-# Xóa bỏ phần Vé Tàu
+# Cập nhật chọn lọc lên GitHub (Khách sạn, Máy bay, Nhà hàng)
 
-Kế hoạch này nhằm loại bỏ hoàn toàn tính năng "Vé Tàu" khỏi ứng dụng, bao gồm giao diện người dùng, mã nguồn xử lý và các khai báo liên quan.
+Kế hoạch này nhằm cập nhật chỉ các thành phần liên quan đến Khách sạn, Vé máy bay và Nhà hàng lên GitHub, đồng thời khôi phục/giữ nguyên các thành phần khác (bao gồm cả tính năng Vé tàu) về trạng thái trước đó trên GitHub.
+
+## Câu hỏi cần xác nhận
+- [ ] Bạn có muốn khôi phục lại nút **"Vé tàu"** trên GitHub không? (Nếu giữ nguyên GitHub cũ thì nút này sẽ quay lại).
+- [ ] Các phần "còn lại" bạn muốn giữ nguyên là bao gồm cả các file cấu hình như `build.gradle`, `.idea`, hay chỉ là giao diện màn hình chính?
 
 ## Các thay đổi đề xuất
 
-### [Component: UI]
+### [Component: GitHub Sync]
 
-#### [MODIFY] [activity_main.xml](file:///C:/Users/HOANG/Downloads/do_an_app_du_lich-master%20(2)/do_an_app_du_lich-master/do_an_app_du_lich-master/app/src/main/res/layout/activity_main.xml)
-- Xóa bỏ khối `LinearLayout` có `android:id="@+id/btnTrain"`.
+#### [MODIFY] Selective Push
+- Chỉ commit và push các file thuộc 3 module:
+    - **Hotel:** `Hotel.java`, `HotelActivity.java`, `HotelAdapter.kt`, `HotelResponse.java`, `activity_hotel.xml`, `item_hotel.xml`, `HotelDetailActivity.java`, `SerpHotelModels.kt`, `activity_hotel_detail.xml`, `SerpHotelRepository.kt`.
+    - **Flight:** `FlightActivity.java`, `item_flight.xml`, `activity_flight.xml`, `FlightAdapter.kt`.
+    - **Restaurant:** `RestaurantActivity.kt`, `item_restaurant.xml`, `activity_restaurant.xml`, `RestaurantAdapter.kt`.
 
-#### [DELETE] [activity_train.xml](file:///C:/Users/HOANG/Downloads/do_an_app_du_lich-master%20(2)/do_an_app_du_lich-master/do_an_app_du_lich-master/app/src/main/res/layout/activity_train.xml)
-- Xóa file layout của màn hình vé tàu.
-
-#### [DELETE] [cc.xml](file:///C:/Users/HOANG/Downloads/do_an_app_du_lich-master%20(2)/do_an_app_du_lich-master/do_an_app_du_lich-master/app/src/main/res/layout/cc.xml)
-- Xóa file layout dư thừa này vì nó không được sử dụng và có chứa "Vé tàu".
-
-### [Component: Logic]
-
-#### [MODIFY] [MainActivity.java](file:///C:/Users/HOANG/Downloads/do_an_app_du_lich-master%20(2)/do_an_app_du_lich-master/do_an_app_du_lich-master/app/src/main/java/com/example/doan1/MainActivity.java)
-- Xóa phần ánh xạ `btnTrain` và sự kiện click listener mở `TrainActivity`.
-
-#### [DELETE] [TrainActivity.java](file:///C:/Users/HOANG/Downloads/do_an_app_du_lich-master%20(2)/do_an_app_du_lich-master/do_an_app_du_lich-master/app/src/main/java/com/example/doan1/TrainActivity.java)
-- Xóa file Activity xử lý màn hình vé tàu.
-
-### [Component: Manifest]
-
-#### [MODIFY] [AndroidManifest.xml](file:///C:/Users/HOANG/Downloads/do_an_app_du_lich-master%20(2)/do_an_app_du_lich-master/do_an_app_du_lich-master/app/src/main/AndroidManifest.xml)
-- Xóa khai báo `<activity android:name=".TrainActivity" />`.
+#### [REVERT] Shared Files (Nếu cần)
+- Khôi phục `activity_main.xml`, `MainActivity.java`, `AndroidManifest.xml` về trạng thái có "Vé tàu" để đồng bộ với yêu cầu "giữ nguyên phần còn lại của GitHub".
 
 ## Kế hoạch xác minh
-
-### Kiểm tra tự động
-- Chạy lệnh build để đảm bảo không còn lỗi tham chiếu đến các file đã xóa.
-
-### Kiểm tra thủ công
-- Chạy ứng dụng và kiểm tra xem nút "Vé Tàu" đã biến mất khỏi màn hình chính chưa.
-- Đảm bảo các nút khác (Khách sạn, Vé Máy bay, Nhà hàng) vẫn hoạt động bình thường.
+- Kiểm tra lịch sử commit trên GitHub để đảm bảo chỉ các file liên quan được thay đổi.
+- Đảm bảo dự án vẫn build thành công cục bộ (với giao diện 3 nút) và GitHub (với giao diện cũ).

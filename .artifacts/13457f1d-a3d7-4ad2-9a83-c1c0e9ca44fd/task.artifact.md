@@ -1,5 +1,6 @@
-- [x] Loại bỏ giao diện "Vé tàu" trong `activity_main.xml`
-- [x] Loại bỏ logic xử lý "Vé tàu" trong `MainActivity.java`
-- [x] Xóa bỏ khai báo `TrainActivity` trong `AndroidManifest.xml`
-- [x] Xóa các tham chiếu đến `activity_train.xml`, `TrainActivity.java` và `cc.xml`
-- [x] Kiểm tra build dự án
+- [x] Xác định các file liên quan đến Khách sạn, Máy bay, Nhà hàng
+- [ ] Khôi phục `activity_main.xml` về trạng thái 4 nút (bao gồm Vé tàu)
+- [ ] Khôi phục `MainActivity.java` về trạng thái có logic Vé tàu
+- [ ] Khôi phục `AndroidManifest.xml` về trạng thái có khai báo TrainActivity
+- [ ] Push các thay đổi này lên GitHub để "giữ nguyên" trạng thái cũ của các phần không liên quan
+- [ ] Kiểm tra lại trên GitHub
