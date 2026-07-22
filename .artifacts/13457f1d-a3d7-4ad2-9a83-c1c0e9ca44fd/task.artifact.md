@@ -1,0 +1,5 @@
+- [x] Loại bỏ giao diện "Vé tàu" trong `activity_main.xml`
+- [x] Loại bỏ logic xử lý "Vé tàu" trong `MainActivity.java`
+- [x] Xóa bỏ khai báo `TrainActivity` trong `AndroidManifest.xml`
+- [x] Xóa các tham chiếu đến `activity_train.xml`, `TrainActivity.java` và `cc.xml`
+- [x] Kiểm tra build dự án

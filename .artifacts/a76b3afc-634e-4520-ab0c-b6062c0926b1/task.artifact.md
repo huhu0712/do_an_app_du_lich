@@ -1,0 +1,4 @@
+- [x] Tạo layout `activity_restaurant.xml` dựa trên `activity_hotel.xml`
+- [x] Tạo activity `RestaurantActivity.java` dựa trên `HotelActivity.java`
+- [x] Khai báo `RestaurantActivity` trong `AndroidManifest.xml`
+- [x] Thiết lập sự kiện click cho `btnRestaurant` trong `MainActivity.java`
